@@ -1,0 +1,20 @@
+from pandas.io.html import read_html
+import pandas as pd
+from pandas import DataFrame
+
+page = 'https://www.grireland.ie/results/view-results/?track=SPK&date=24-Oct-2020'
+
+tables = read_html(page, index_col=0, attrs={"class":"igb-tbl"}, header=None)
+
+print ("Extracted {num} tables".format(num=len(tables)))
+
+tables[1]
+
+import pandas as pd
+for table in tables:
+    data= pd.DataFrame.append(table,tables)
+    
+ 
+    
+
+print(data)   
